@@ -1,0 +1,185 @@
+<div>
+    <div style ="float: left; margin: auto auto auto 10px">
+        <a href="#/" style = "font-size:20px">
+            <span class="glyphicon glyphicon-menu-left" ></span>
+        </a>
+    </div>
+    <h3 style = "margin: 13px auto auto auto; width: 68%">New Employee</h3>
+    <hr style="border-color:grey; margin: 10px auto 5px auto">
+    <div >
+        <img id = "userPic"  style = "width: 60px; height:60px; margin: auto auto auto 4px" alt = "" />
+
+        <div class="btn btn-default btn-sm" style = "width:178px">
+            <span>Upload Portrait</span>
+            <form class = "form-horizontal" enctype='multipart/form-data' method='post' action='javascript:;' role = "form" id = "frmUploadFile">
+            <input id="uploadBtn" name = "files" type="file" class="upload" accept="image/*" onchange="loadFile(event)"/>
+            </form>
+        </div>
+
+    </div>
+
+    <div style = "height: 326px; overflow-y: scroll;margin: 4px 1px">
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon " ><span class="glyphicon glyphicon-user" ></span></span>
+                        <input type="text" class="form-control" placeholder="Name" ng-model = "Name">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" ><span class="glyphicon glyphicon-pencil" ></span></span>
+                        <input type="text" class="form-control" placeholder="Title" ng-model = "Title">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar" ></span></span>
+                        <input type="text" class="form-control" placeholder="Start Date" ng-model = "startDate">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" ><span class="glyphicon glyphicon-earphone" ></span></span>
+                        <input type="text" class="form-control" placeholder="Office Phone" ng-model = "officePhone">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" ><span class="glyphicon glyphicon-phone" ></span></span>
+                        <input type="text" class="form-control" placeholder="Cell Phone" ng-model = "cellPhone">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" ><span class="glyphicon glyphicon-comment" ></span></span>
+                        <input type="text" class="form-control" placeholder="SMS" ng-model = "SMS">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" ><span class="glyphicon glyphicon-envelope" ></span></span>
+                        <input type="text" class="form-control" placeholder="Email" ng-model = "Email">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" ><span class="glyphicon glyphicon-star" ></span></span>
+                        <select class="form-control" ng-model = "Manager">
+                            <option value="" disabled selected>Manager</option>
+                            <option ng-repeat = "employee in employees" value = "{{employee.uid}}" >{{employee.Name}}</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div class="input-group ">
+                        <span class="input-group-addon" >Direct Reports</span>
+                        <select multiple class="form-control"  size = "4" ng-model = "directReports">
+                            <option ng-repeat = "employee in employees" value = "{{employee.uid}}">{{employee.Name}}</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr style="border-color:grey; margin: 8px auto 0px auto">
+    <div style = "width:60px; margin: auto auto"> <a href=""><img ng-click="createEmployee()" style = "width: 60px; height:45px" src="/images/save1.jpg"/></a> </div>
+
+
+
+    <!--<div float>-->
+
+    <!--<div style = "margin: auto auto auto 5px; width : 50%">-->
+    <!--<span><strong>{{employee.Name}}</strong></span><br>-->
+    <!--<span>{{employee.Title}}</span>-->
+    <!--</div>-->
+    <!--<div  style = "margin: 7px auto; width: 30%">-->
+    <!--<a href="#/" style = "font-size:20px">-->
+    <!--<span class="glyphicon glyphicon-menu-right" ></span>-->
+    <!--</a>-->
+    <!--</div>-->
+
+
+    <!--</div>-->
+    <!--<hr style="border-color:grey; margin: 5px auto 5px auto">-->
+
+
+</div>
+
+<!--<form class = "form-horizontal" enctype='multipart/form-data' method='post' action='javascript:;' role = "form" id = "frmUploadFile">-->
+
+            <!--<input type = "file" name = "files" class = "form-control" />-->
+
+
+            <!--<button class = "btn btn-primary" onClick = "uploadFile()">上传</button>-->
+
+<!--</form>-->
+
+<script>
+//    function readURL(input) {
+//        if (input.files && input.files[0]) {
+//            var reader = new FileReader();
+//
+//            reader.onload = function (e) {
+//                $('#userPic').attr('src', e.target.result);
+//            }
+//
+//            reader.readAsDataURL(input.files[0]);
+//        }
+//    }
+//
+//    $("#uploadBtn").change(function(){
+//        readURL(this);
+//    });
+
+
+
+
+
+function uploadFile(callback){
+    var formData = new FormData($("#frmUploadFile")[0]);
+    $.ajax({
+        url: '/files',
+        type: 'POST',
+        data: formData,
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(data){
+            if(200 === data.code) {
+            } else {
+            }
+            callback(data.imgPath)
+            //console.log('imgUploader upload success, data:', data);
+        },
+        error: function(){
+        }
+    });
+}
+
+    var loadFile = function(event) {
+        var output = document.getElementById('userPic');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+</script>

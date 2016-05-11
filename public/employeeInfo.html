@@ -1,0 +1,145 @@
+<div>
+    <div style ="float: left; margin: auto auto auto 10px">
+        <a href="" style = "font-size:20px" ng-click = "changeViewBack()">
+            <span class="glyphicon glyphicon-menu-left" ></span>
+        </a>
+    </div>
+    <h3 style = "margin: 13px auto auto auto; width: 41%">Employee</h3>
+    <hr style="border-color:grey; margin: 10px auto 5px auto">
+    <div >
+        <div style="float:left;  width: 65px; margin:auto auto auto 3px;" >
+            <img style = "width: 60px; height:60px;" ng-src="/images/{{employee.pic}}" />
+        </div>
+        <div style = "height: 60px">
+            <span><strong>{{employee.Name}}</strong></span><br>
+            <span>{{employee.Title}}</span><br>
+            <span>{{employee.startDate}}</span>
+        </div>
+    </div>
+
+
+    <div style = "height: 326px; overflow-y: scroll;margin: 4px 1px">
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div>
+                        <div style="float:left; font-size:12px">
+                            <span style = "color:darkblue"><strong>View Manager</strong></span><br>
+                            <span>{{employeeManagerName}}</span>
+                        </div>
+                        <div style = "float:right; margin: 7px 15px 2px auto" ng-show = "hasManager">
+                            <a href="#/info/{{employee.Manager}}" style = "font-size:20px" ng-click = "changeView()">
+                                <span class="glyphicon glyphicon-menu-right" ></span>
+                            </a>
+                        </div>
+                        <div style = "float:right; margin: 7px 15px 2px auto" ng-hide = "hasManager">
+                            <span style = "font-size:20px" class="glyphicon glyphicon-menu-right" ></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div>
+                        <div style="float:left; font-size:12px">
+                            <span style = "color:darkblue"><strong>View Direct Reports</strong></span><br>
+                            <span>{{employee.directReports.length}}</span>
+                        </div>
+                        <div style = "float:right; margin: 7px 15px 2px auto" ng-show = "hasDirectReports">
+                            <a href="#/report/{{employeeId}}" style = "font-size:20px" ng-click = "changeView()">
+                                <span class="glyphicon glyphicon-menu-right" ></span>
+                            </a>
+                        </div>
+                        <div style = "float:right; margin: 7px 15px 2px auto" ng-hide = "hasDirectReports">
+                            <span style = "font-size:20px" class="glyphicon glyphicon-menu-right" ></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div>
+                        <div style="float:left; font-size:12px">
+                            <span style = "color:darkblue"><strong>Call Office</strong></span><br>
+                            <span>{{employee.officePhone}}</span>
+                        </div>
+                        <div style = "float:right; margin: 7px 15px 2px auto">
+
+                                <span style = "font-size:20px" class="glyphicon glyphicon-earphone" ></span>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div>
+                        <div style="float:left; font-size:12px">
+                            <span style = "color:darkblue"><strong>Call Cell</strong></span><br>
+                            <span>{{employee.cellPhone}}</span>
+                        </div>
+                        <div style = "float:right; margin: 7px 15px 2px auto">
+
+                                <span style = "font-size:20px" class="glyphicon glyphicon-phone" ></span>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div>
+                        <div style="float:left; font-size:12px">
+                            <span style = "color:darkblue"><strong>SMS</strong></span><br>
+                            <span>{{employee.SMS}}</span>
+                        </div>
+                        <div style = "float:right; margin: 7px 15px 2px auto">
+
+                                <span style = "font-size:20px" class="glyphicon glyphicon-comment" ></span>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style = "padding: 2px 2px">
+                    <div>
+                        <div style="float:left; font-size:12px">
+                            <span style = "color:darkblue"><strong>Email</strong></span><br>
+                            <span>{{employee.Email}}</span>
+                        </div>
+                        <div style = "float:right; margin: 7px 15px 2px auto">
+
+                                <span style = "font-size:20px" class="glyphicon glyphicon-envelope" ></span>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr style="border-color:grey; margin: 8px auto 0px auto">
+    <div style = "width:60px; margin: auto auto"> <a  href="#/edit/{{employeeId}}"><img style = "width: 60px; height:45px" src="/images/edit1.png"/></a> </div>
+
+
+
+    <!--<div float>-->
+
+        <!--<div style = "margin: auto auto auto 5px; width : 50%">-->
+            <!--<span><strong>{{employee.Name}}</strong></span><br>-->
+            <!--<span>{{employee.Title}}</span>-->
+        <!--</div>-->
+        <!--<div  style = "margin: 7px auto; width: 30%">-->
+            <!--<a href="#/" style = "font-size:20px">-->
+                <!--<span class="glyphicon glyphicon-menu-right" ></span>-->
+            <!--</a>-->
+        <!--</div>-->
+
+
+    <!--</div>-->
+    <!--<hr style="border-color:grey; margin: 5px auto 5px auto">-->
+
+
+</div>

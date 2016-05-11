@@ -1,0 +1,9 @@
+div.container1 {
+    width: 400px;
+    margin: 10px auto auto auto;
+    height: 500px;
+    /*background-color: rgb(238, 238, 238);*/
+    border: 2px solid darkgray;
+    border-radius:6px;
+   background-image: url("/images/333.jpg");
+}

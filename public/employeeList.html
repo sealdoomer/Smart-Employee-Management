@@ -1,0 +1,37 @@
+<div>
+    <h3 style = "margin: 13px auto auto auto; width: 85%">Employee List</h3>
+    <hr style="border-color:grey; margin: 10px auto 8px auto">
+    <div class="form-group has-feedback" style = "margin: 0px auto 5px auto">
+        <input type="text" class="form-control" placeholder="Search" >
+        <span class="glyphicon glyphicon-search form-control-feedback" ></span>
+    </div>
+    <hr style="border-color:grey; margin: 8px auto 0px auto">
+    <div style = "height: 343px; overflow-y: scroll;margin: 1px 1px">
+        <table class="table table-hover">
+            <tbody>
+            <tr ng-repeat = "employee in employees">
+                <td style = "padding: 2px 2px">
+                    <div>
+                        <div style="float:left;  width: 50px" >
+                            <a href="#/info/{{employee.uid}}" ng-click = "changeView()"><img style = "width: 45px; height:45px;" ng-src="/images/{{employee.pic}}" /></a>
+                        </div>
+                        <div style="float:left;">
+                            <span><strong>{{employee.Name}}</strong></span><br>
+                            <span>{{employee.Title}}</span>
+                        </div>
+                        <div style = "float:right; margin: 7px auto">
+                            <a href="#/report/{{employee.uid}}" style = "font-size:20px" ng-click = "changeView()">
+                                <span >{{employee.directReports.length}}</span>
+                                <span class="glyphicon glyphicon-menu-right" ></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr style="border-color:grey; margin: 8px auto 0px auto">
+    <div style = "width:60px; margin: auto auto"> <a  href="#/create"><img style = "width: 60px; height:45px" src="/images/new1.png"/></a> </div>
+</div>
